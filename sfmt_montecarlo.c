@@ -5,13 +5,11 @@
 
 int main()
 {
-  int i,cnt;
+  int i,cnt=0,seed = time(NULL);
   double x,y,pi;
-  
   sfmt_t sfmt;
-  int seed = time(NULL);
-  sfmt_init_gen_rand( &sfmt, seed );
   uint64_t v;
+  sfmt_init_gen_rand( &sfmt, seed );
 
   for(i=0; i<10000; i++){
     v = sfmt_genrand_uint64( &sfmt );
@@ -25,7 +23,4 @@ int main()
   }
   pi = (float)cnt / 10000.0 * 4;
   printf("[%5d] %f \n",cnt,pi);
-  
-  
-  printf("hello\n");
 }
